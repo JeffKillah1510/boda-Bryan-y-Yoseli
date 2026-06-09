@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda Bryan & Yosseline</title>
-    <!-- Fuentes elegantes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -46,7 +45,6 @@
         }
         .hero-content { position: relative; z-index: 2; color: #f5f2eb; }
         .hero h2 { font-family: 'Alex Brush', cursive; font-size: 4rem; line-height: 1.1; }
-        .hero p.subtitle { font-size: 0.9rem; letter-spacing: 5px; text-transform: uppercase; color: #d8d0c0; }
 
         /* Cuenta Regresiva */
         .countdown { display: flex; justify-content: center; gap: 10px; margin-top: 25px; }
@@ -56,32 +54,35 @@
 
         .section-title { font-size: 1.2rem; letter-spacing: 3px; color: #1a1a1a; margin-bottom: 25px; text-transform: uppercase; }
         
-        /* Sección de Fotos con Adornos Flotantes */
-        .gallery-section { background-color: #f5f2eb; position: relative; padding-top: 60px; }
-        .decor-palomas { position: absolute; top: 10px; left: 10px; width: 70px; opacity: 0.7; }
-        .decor-anillos { position: absolute; bottom: 10px; left: 10px; width: 60px; opacity: 0.7; }
-        .decor-iglesia { position: absolute; bottom: 160px; right: 80px; width: 65px; opacity: 0.7; z-index: 5; }
-        .decor-arco { position: absolute; bottom: 15px; right: 10px; width: 150px; opacity: 0.8; }
+        /* Sección de Fotos con Adornos Flotantes Activos */
+        .gallery-section { background-color: #f5f2eb; position: relative; padding-top: 60px; padding-bottom: 60px; }
+        
+        /* Posicionamiento preciso de tus imágenes PNG de adorno */
+        .decor-palomas { position: absolute; top: 15px; left: 15px; width: 65px; opacity: 0.8; z-index: 3; }
+        .decor-anillos { position: absolute; bottom: 15px; left: 15px; width: 55px; opacity: 0.8; z-index: 3; }
+        .decor-iglesia { position: absolute; bottom: 170px; right: 75px; width: 60px; opacity: 0.8; z-index: 3; }
+        .decor-arco { position: absolute; top: 40px; right: 10px; width: 180px; opacity: 0.4; z-index: 1; }
         
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; position: relative; z-index: 2; }
         .gallery-item { width: 100%; height: 150px; object-fit: cover; border-radius: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .gallery-wide { grid-column: span 1; height: 180px; width: 90%; }
         .gallery-right { grid-column: span 1; height: 260px; margin-top: 40px; width: 95%; margin-left: auto; }
 
-        /* Cronograma con sus dibujos de Flores y Mesa */
+        /* Cronograma con Flores y Mesa */
         .cronograma-section { position: relative; background-color: #f5f2eb; padding-top: 40px; }
-        .decor-ramo { position: absolute; top: 10px; right: 10px; width: 90px; opacity: 0.7; }
-        .decor-mesa { position: absolute; bottom: 20px; right: 15px; width: 140px; opacity: 0.7; }
+        .decor-ramo { position: absolute; top: 15px; right: 15px; width: 85px; opacity: 0.8; z-index: 3; }
+        .decor-mesa { position: absolute; bottom: 25px; right: 15px; width: 130px; opacity: 0.8; z-index: 3; }
+        
         .timeline { text-align: left; margin: 30px 10px; max-width: 65%; position: relative; z-index: 2; }
         .timeline-item { display: flex; flex-direction: column; padding: 10px 0; border-bottom: 1px solid #dcd7cc; }
         .timeline-time { font-weight: 600; font-size: 0.85rem; color: #1a1a1a; margin-bottom: 2px; }
         .timeline-desc { color: #555; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem; }
 
-        /* Secciones Oscuras */
+        /* Secciones Oscuras (Día del Evento y RSVP) */
         .dark-section { background-color: #000000; color: #ffffff; padding: 50px 30px; position: relative; }
         .dark-section .section-title { color: #ffffff; font-size: 1.5rem; }
         .dark-section p { font-size: 0.85rem; color: #e0e0e0; letter-spacing: 1px; line-height: 1.8; margin-bottom: 15px; }
-        .decor-pastel { position: absolute; top: 20px; right: 20px; width: 60px; opacity: 0.6; }
+        .decor-pastel { position: absolute; top: 25px; right: 25px; width: 55px; opacity: 0.7; z-index: 3; }
 
         .btn-action {
             display: inline-block; padding: 12px 30px; background-color: #ffffff; color: #000000;
@@ -104,7 +105,6 @@
 </head>
 <body>
 
-    <!-- BIENVENIDA -->
     <div id="welcome-screen">
         <h1 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: #777;">Nuestra Boda</h1>
         <h1 style="margin-top: 10px;">Bryan & Yosseline</h1>
@@ -113,14 +113,12 @@
 
     <div class="container">
         
-        <!-- HERO -->
         <section class="hero">
             <div class="hero-content">
                 <h2 style="font-size: 3.5rem;">Bryan & Yosseline</h2>
             </div>
         </section>
 
-        <!-- CUENTA REGRESIVA -->
         <section style="background-color: #ffffff;">
             <div class="countdown">
                 <div class="time-block"><span id="days">00</span><label>Días</label></div>
@@ -130,7 +128,6 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE FOTOS -->
         <section class="gallery-section">
             <img src="decor_palomas.png" class="decor-palomas" alt="">
             <img src="decor_anillos.png" class="decor-anillos" alt="">
@@ -139,14 +136,13 @@
 
             <div class="gallery-grid">
                 <div style="grid-column: span 1; display: flex; flex-direction: column; gap: 15px; align-items: flex-start;">
-                    <img src="foto1.pjg.jpeg" class="gallery-item gallery-wide" alt="">
-                    <img src="foto2.jpg.jpeg" class="gallery-item" style="width: 85%; height: 130px; margin-left: 20px;" alt="">
+                    <img src="foto1.pjg.jpeg" class="gallery-item gallery-wide" alt="Bryan">
+                    <img src="foto2.jpg.jpeg" class="gallery-item" style="width: 85%; height: 130px; margin-left: 20px;" alt="Yosseline">
                 </div>
-                <img src="foto3.jpg.jpeg" class="gallery-item gallery-right" alt="">
+                <img src="foto3.jpg.jpeg" class="gallery-item gallery-right" alt="Juntos">
             </div>
         </section>
 
-        <!-- CRONOGRAMA -->
         <section class="cronograma-section">
             <img src="decor_ramo.png" class="decor-ramo" alt="">
             <img src="decor_mesa.png" class="decor-mesa" alt="">
@@ -162,16 +158,14 @@
             </div>
         </section>
 
-        <!-- UBICACIÓN -->
         <section class="dark-section">
             <h3 class="section-title">DÍA DEL EVENTO</h3>
             <p style="color: #b3966a; font-weight: 600;">28 DE AGOSTO DE 2026 | 7:00 PM</p>
             <p style="margin-top: 15px;"><strong>LUGAR DEL EVENTO:</strong><br>JARDÍN Y TERRAZA PUERTA AL PARAÍSO</p>
             <p><strong>DIRECCIÓN:</strong><br>C. ESPAÑA 8451, JUÁREZ, 22040 TIJUANA, B.C.</p>
-            <a href="https://maps.google.com/?q=Jardin+Puerta+al+Paraiso+Tijuana" target="_blank" class="btn-action">Ver ubicación en mapa</a>
+            <a href="https://maps.google.com" target="_blank" class="btn-action">Ver ubicación en mapa</a>
         </section>
 
-        <!-- RSVP -->
         <section class="dark-section" style="border-top: 1px solid #1a1a1a;">
             <img src="decor_pastel.png" class="decor-pastel" alt="">
             <h3 class="section-title">RSVP</h3>
@@ -180,15 +174,13 @@
             <a href="https://wa.me/521234567890?text=Hola!%20Confirmo%20asistencia%20a%20la%20boda%20de%20Bryan%20y%20Yosseline" target="_blank" class="btn-action btn-whatsapp">Por favor de confirmar aquí</a>
         </section>
 
-        <!-- FINAL -->
         <section style="background-color: #f5f2eb;">
             <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.2rem; font-weight: 400;">Esperamos contar con tu presencia</h3>
-            <img src="foto_final.jpg.jpeg" class="foto-final-img" alt="">
+            <img src="foto_final.jpg.jpeg" class="foto-final-img" alt="Final">
         </section>
 
     </div>
 
-    <!-- REPRODUCTOR -->
     <div id="music-player" style="display: none;">
         <span class="music-title">🎵 Canción de Fondo</span>
         <button class="player-btn" id="play-pause-btn" onclick="toggleMusic()">❚❚</button>
