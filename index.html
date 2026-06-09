@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda Bryan & Yosseline</title>
+    <title>Boda Bryan & Yoseli</title>
+    <!-- Fuentes elegantes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -93,7 +94,7 @@
         .btn-rsvp { 
             background-color: #ffffff; 
             color: #1a1a1a; 
-            border: 2px solid #b3966a; /* Color Dorado Elegante */
+            border: 2px solid #b3966a; 
             font-size: 0.8rem; 
             font-weight: 600;
             box-shadow: 0 4px 10px rgba(179, 150, 106, 0.2);
@@ -116,20 +117,23 @@
 </head>
 <body>
 
+    <!-- BIENVENIDA -->
     <div id="welcome-screen">
         <h1 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: #777;">Nuestra Boda</h1>
-        <h1 style="margin-top: 10px;">Bryan & Yosseline</h1>
+        <h1 style="margin-top: 10px;">Bryan & Yoseli</h1>
         <button class="btn-enter" onclick="startInvitation()">Abrir Invitación</button>
     </div>
 
     <div class="container">
         
+        <!-- HERO (PORTADA) -->
         <section class="hero">
             <div class="hero-content">
-                <h2 style="font-size: 3.5rem;">Bryan & Yosseline</h2>
+                <h2 style="font-size: 3.5rem;">Bryan & Yoseli</h2>
             </div>
         </section>
 
+        <!-- CUENTA REGRESIVA -->
         <section style="background-color: #ffffff;">
             <div class="countdown">
                 <div class="time-block"><span id="days">00</span><label>Días</label></div>
@@ -139,6 +143,7 @@
             </div>
         </section>
 
+        <!-- SECCIÓN DE FOTOS -->
         <section class="gallery-section">
             <img src="decor_palomas.png" class="decor-palomas" alt="">
             <img src="decor_anillos.png" class="decor-anillos" alt="">
@@ -147,12 +152,13 @@
             <div class="gallery-grid">
                 <div style="grid-column: span 1; display: flex; flex-direction: column; gap: 15px; align-items: flex-start;">
                     <img src="foto1.pjg.jpeg" class="gallery-item gallery-wide" alt="Bryan">
-                    <img src="foto2.jpg.jpeg" class="gallery-item" style="width: 85%; height: 130px; margin-left: 20px;" alt="Yosseline">
+                    <img src="foto2.jpg.jpeg" class="gallery-item" style="width: 85%; height: 130px; margin-left: 20px;" alt="Yoseli">
                 </div>
                 <img src="foto3.jpg.jpeg" class="gallery-item gallery-right" alt="Juntos">
             </div>
         </section>
 
+        <!-- CRONOGRAMA -->
         <section class="cronograma-section">
             <img src="decor_ramo.png" class="decor-ramo" alt="">
             <img src="decor_mesa.png" class="decor-mesa" alt="">
@@ -168,6 +174,7 @@
             </div>
         </section>
 
+        <!-- UBICACIÓN -->
         <section class="dark-section">
             <h3 class="section-title">DÍA DEL EVENTO</h3>
             <p style="color: #b3966a; font-weight: 600;">28 DE AGOSTO DE 2026 | 7:00 PM</p>
@@ -176,6 +183,7 @@
             <a href="https://maps.google.com/?q=C.+España+8451,+Juárez,+22040+Tijuana,+B.C." target="_blank" class="btn-action">Ver ubicación en mapa</a>
         </section>
 
+        <!-- RSVP (FORMULARIO GOOGLE) -->
         <section class="dark-section" style="border-top: 1px solid #1a1a1a;">
             <img src="decor_pastel.png" class="decor-pastel" alt="">
             <h3 class="section-title">RSVP</h3>
@@ -184,6 +192,7 @@
             <a href="https://forms.gle/5vfDefBzx2xcrLyz9" target="_blank" class="btn-action btn-rsvp">Por favor de confirmar aquí</a>
         </section>
 
+        <!-- FINAL -->
         <section style="background-color: #f5f2eb;">
             <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.2rem; font-weight: 400;">Esperamos contar con tu presencia</h3>
             <img src="foto_final.jpg.jpeg" class="foto-final-img" alt="Final">
@@ -191,6 +200,7 @@
 
     </div>
 
+    <!-- REPRODUCTOR -->
     <div id="music-player" style="display: none;">
         <span class="music-title">🎵 Canción de Fondo</span>
         <button class="player-btn" id="play-pause-btn" onclick="toggleMusic()">❚❚</button>
@@ -230,4 +240,3 @@
         }, 1000);
     </script>
 </body>
-</html>
