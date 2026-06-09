@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boda Yoseli & Bryan</title>
-    <!-- Fuentes elegantes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Parisienne&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -34,11 +33,11 @@
             line-height: 1.2;
         }
         
-        /* El símbolo & súper cursivo e inclinado de Parisienne */
+        /* El símbolo & súper cursivo de Parisienne */
         .ampersand {
             font-family: 'Parisienne', cursive;
             font-size: 3.8rem;
-            color: #b3966a; /* Tono dorado elegante */
+            color: #b3966a; /* Dorado elegante */
             display: inline-block;
             margin: 0 4px;
             vertical-align: middle;
@@ -75,7 +74,7 @@
 
         .section-title { font-size: 1.2rem; letter-spacing: 3px; color: #1a1a1a; margin-bottom: 25px; text-transform: uppercase; }
         
-        /* Sección de Fotos */
+        /* Sección de Fotos con nombres de archivos exactos */
         .gallery-section { background-color: #f5f2eb; padding-top: 40px; padding-bottom: 40px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; position: relative; z-index: 2; }
         .gallery-item { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
@@ -128,7 +127,6 @@
 </head>
 <body>
 
-    <!-- BIENVENIDA -->
     <div id="welcome-screen">
         <h2 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: #777; margin-bottom: 10px;">Nuestra Boda</h2>
         <div class="names-cursive">Yoseli<span class="ampersand">&</span>Bryan</div>
@@ -137,14 +135,12 @@
 
     <div class="container">
         
-        <!-- HERO (PORTADA) -->
         <section class="hero">
             <div class="hero-content">
                 <div class="names-cursive">Yoseli<span class="ampersand">&</span>Bryan</div>
             </div>
         </section>
 
-        <!-- CUENTA REGRESIVA -->
         <section style="background-color: #ffffff; padding: 30px 25px;">
             <div class="countdown">
                 <div class="time-block"><span id="days">00</span><label>Días</label></div>
@@ -154,18 +150,16 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE FOTOS -->
         <section class="gallery-section">
             <div class="gallery-grid">
                 <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <img src="foto1.jpg.jpeg" class="gallery-item gallery-wide" alt="Yoseli y Bryan">
-                    <img src="foto2.jpg.jpeg" class="gallery-item" style="height: 130px;" alt="Yoseli y Bryan">
+                    <img src="foto1.pjg.jpeg" class="gallery-item gallery-wide" alt="Bryan con Traje">
+                    <img src="foto2.jpg.jpeg" class="gallery-item" style="height: 130px;" alt="Yoseli">
                 </div>
                 <img src="foto3.jpg.jpeg" class="gallery-item gallery-right" alt="Yoseli y Bryan">
             </div>
         </section>
 
-        <!-- CRONOGRAMA -->
         <section class="cronograma-section">
             <h3 class="section-title" style="text-align: center; font-size: 1.4rem; font-weight: 400; letter-spacing: 4px;">CRONOGRAMA DEL EVENTO</h3>
             
@@ -178,16 +172,14 @@
             </div>
         </section>
 
-        <!-- UBICACIÓN -->
         <section class="dark-section">
             <h3 class="section-title">DÍA DEL EVENTO</h3>
             <p style="color: #b3966a; font-weight: 600; letter-spacing: 2px;">28 DE AGOSTO DE 2026 | 7:00 PM</p>
             <p style="margin-top: 15px;"><strong>LUGAR DEL EVENTO:</strong><br>JARDÍN Y TERRAZA PUERTA AL PARAÍSO</p>
             <p><strong>DIRECCIÓN:</strong><br>C. ESPAÑA 8451, JUÁREZ, 22040 TIJUANA, B.C.</p>
-            <a href="https://maps.google.com/?q=Jardin+y+Terraza+Puerta+al+Paraiso+Tijuana" target="_blank" class="btn-action">Ver ubicación en mapa</a>
+            <a href="http://maps.google.com/?q=C.+Espa%C3%B1a+8451,+Ju%C3%A1rez,+22040+Tijuana,+B.C." target="_blank" class="btn-action">Ver ubicación en mapa</a>
         </section>
 
-        <!-- RSVP -->
         <section class="dark-section" style="border-top: 1px solid #222;">
             <h3 class="section-title">RSVP</h3>
             <p style="font-size: 0.75rem; color: #b3966a; letter-spacing: 2px;">CONFIRMACIÓN DE ASISTENCIA</p>
@@ -195,7 +187,6 @@
             <a href="https://forms.gle/5vfDefBzx2xcrLyz9" target="_blank" class="btn-action btn-rsvp">Por favor de confirmar aquí</a>
         </section>
 
-        <!-- FINAL -->
         <section style="background-color: #f5f2eb; padding-bottom: 50px;">
             <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 400; color: #1a1a1a;">Esperamos contar con tu presencia</h3>
             <img src="foto_final.jpg.jpeg" class="foto-final-img" alt="Yoseli & Bryan">
@@ -203,7 +194,6 @@
 
     </div>
 
-    <!-- REPRODUCTOR -->
     <div id="music-player" style="display: none;">
         <span class="music-title">🎵 Canción de Fondo</span>
         <button class="player-btn" id="play-pause-btn" onclick="toggleMusic()">❚❚</button>
