@@ -54,21 +54,19 @@
 
         .section-title { font-size: 1.2rem; letter-spacing: 3px; color: #1a1a1a; margin-bottom: 25px; text-transform: uppercase; }
         
-        /* Sección de Fotos con Adornos Flotantes Activos */
+        /* Sección de Fotos (Arco eliminado por completo) */
         .gallery-section { background-color: #f5f2eb; position: relative; padding-top: 60px; padding-bottom: 60px; }
         
-        /* Posicionamiento preciso de tus imágenes PNG de adorno */
         .decor-palomas { position: absolute; top: 15px; left: 15px; width: 65px; opacity: 0.8; z-index: 3; }
         .decor-anillos { position: absolute; bottom: 15px; left: 15px; width: 55px; opacity: 0.8; z-index: 3; }
         .decor-iglesia { position: absolute; bottom: 170px; right: 75px; width: 60px; opacity: 0.8; z-index: 3; }
-        .decor-arco { position: absolute; top: 40px; right: 10px; width: 180px; opacity: 0.4; z-index: 1; }
         
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; position: relative; z-index: 2; }
         .gallery-item { width: 100%; height: 150px; object-fit: cover; border-radius: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .gallery-wide { grid-column: span 1; height: 180px; width: 90%; }
         .gallery-right { grid-column: span 1; height: 260px; margin-top: 40px; width: 95%; margin-left: auto; }
 
-        /* Cronograma con Flores y Mesa */
+        /* Cronograma */
         .cronograma-section { position: relative; background-color: #f5f2eb; padding-top: 40px; }
         .decor-ramo { position: absolute; top: 15px; right: 15px; width: 85px; opacity: 0.8; z-index: 3; }
         .decor-mesa { position: absolute; bottom: 25px; right: 15px; width: 130px; opacity: 0.8; z-index: 3; }
@@ -78,7 +76,7 @@
         .timeline-time { font-weight: 600; font-size: 0.85rem; color: #1a1a1a; margin-bottom: 2px; }
         .timeline-desc { color: #555; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem; }
 
-        /* Secciones Oscuras (Día del Evento y RSVP) */
+        /* Secciones Oscuras */
         .dark-section { background-color: #000000; color: #ffffff; padding: 50px 30px; position: relative; }
         .dark-section .section-title { color: #ffffff; font-size: 1.5rem; }
         .dark-section p { font-size: 0.85rem; color: #e0e0e0; letter-spacing: 1px; line-height: 1.8; margin-bottom: 15px; }
@@ -132,7 +130,6 @@
             <img src="decor_palomas.png" class="decor-palomas" alt="">
             <img src="decor_anillos.png" class="decor-anillos" alt="">
             <img src="decor_iglesia.png" class="decor-iglesia" alt="">
-            <img src="decor_arco.png" class="decor-arco" alt="">
 
             <div class="gallery-grid">
                 <div style="grid-column: span 1; display: flex; flex-direction: column; gap: 15px; align-items: flex-start;">
