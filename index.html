@@ -67,11 +67,58 @@
         .hero .names-cursive { color: #f5f2eb; font-size: 3.8rem; }
         .hero .ampersand { color: #f5f2eb; font-size: 4.2rem; }
 
-        /* Cuenta Regresiva */
+        /* Contenedor Cuenta Regresiva y Nuevas Funciones */
+        .countdown-section { background-color: #ffffff; padding: 35px 25px 25px 25px; }
         .countdown { display: flex; justify-content: center; gap: 10px; margin-top: 25px; }
         .time-block { background: #faf8f5; border: 1px solid #e3ded4; padding: 12px 5px; border-radius: 8px; min-width: 75px; }
         .time-block span { display: block; font-size: 1.5rem; font-weight: 600; color: #1a1a1a; }
         .time-block label { font-size: 0.65rem; text-transform: uppercase; color: #777; letter-spacing: 1px; }
+
+        /* Efecto de escritura automática letra por letra */
+        .typing-container {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #b3966a;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            min-height: 24px;
+            margin-bottom: 10px;
+        }
+        .char {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: all 0.3s ease;
+        }
+        .char.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Botón de Calendario */
+        .btn-calendar {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 25px;
+            padding: 10px 20px;
+            border: 1px solid #b3966a;
+            background-color: transparent;
+            color: #b3966a;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-calendar:hover {
+            background-color: #b3966a;
+            color: #ffffff;
+        }
 
         .section-title { font-size: 1.2rem; letter-spacing: 3px; color: #1a1a1a; margin-bottom: 25px; text-transform: uppercase; }
         
@@ -144,21 +191,30 @@
             </div>
         </section>
 
-        <!-- CUENTA REGRESIVA -->
-        <section style="background-color: #ffffff; padding: 30px 25px;">
+        <!-- SECCIÓN CUENTA REGRESIVA, FECHA MAQUINA ESCRIBIR Y CALENDARIO -->
+        <section class="countdown-section">
+            <!-- El texto que aparecerá letra por letra -->
+            <div class="typing-container" id="animated-date">Viernes 28 de Agosto 2026</div>
+
             <div class="countdown">
                 <div class="time-block"><span id="days">00</span><label>Días</label></div>
                 <div class="time-block"><span id="hours">00</span><label>Horas</label></div>
                 <div class="time-block"><span id="minutes">00</span><label>Min</label></div>
                 <div class="time-block"><span id="seconds">00</span><label>Seg</label></div>
             </div>
+
+            <!-- Botón para añadir directamente a Google Calendar -->
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Yoseli+%26+Bryan&dates=20260828T190000/20260829T020000&details=¡Acompáñanos+a+celebrar+nuestra+boda!+Por+favor+confirma+tu+asistencia.&location=Jardín+y+Terraza+Puerta+al+Paraíso,+C.+España+8451,+Juárez,+22040+Tijuana,+B.C.&sf=true&output=xml" 
+               target="_blank" class="btn-calendar">
+                📅 Agregar al Calendario
+            </a>
         </section>
 
         <!-- SECCIÓN DE FOTOS -->
         <section class="gallery-section">
             <div class="gallery-grid">
                 <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <!-- Foto de Bryan en traje con un seguro por si falla el nombre del archivo viejo -->
+                    <!-- Foto de Bryan en traje -->
                     <img src="foto1.pjg.jpeg" onerror="this.src='foto1.jpg.jpeg'; this.onerror=function(){this.src='foto1.jpg';};" class="gallery-item gallery-wide" alt="Bryan con traje">
                     <img src="foto2.jpg.jpeg" class="gallery-item" style="height: 130px;" alt="Yoseli">
                 </div>
@@ -216,11 +272,41 @@
         const music = document.getElementById('bg-music');
         const playPauseBtn = document.getElementById('play-pause-btn');
 
+        // Función para preparar el texto de la fecha separándolo por letras
+        function setupTypewriter() {
+            const container = document.getElementById('animated-date');
+            const text = container.textContent;
+            container.textContent = '';
+            
+            for (let i = 0; i < text.length; i++) {
+                const span = document.createElement('span');
+                // Si es un espacio, respetamos el espacio vacío
+                span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+                span.className = 'char';
+                container.appendChild(span);
+            }
+        }
+
+        // Función que inicia el efecto de máquina de escribir letra por letra
+        function startTypewriter() {
+            const chars = document.querySelectorAll('.char');
+            chars.forEach((char, index) => {
+                setTimeout(() => {
+                    char.classList.add('fade-in');
+                }, index * 90); // Controla la velocidad aquí (90ms por letra)
+            });
+        }
+
+        // Llamamos al setup apenas carga el documento para fragmentar el texto
+        setupTypewriter();
+
         function startInvitation() {
             document.getElementById('welcome-screen').style.opacity = '0';
             setTimeout(() => {
                 document.getElementById('welcome-screen').style.display = 'none';
                 document.getElementById('music-player').style.display = 'flex';
+                // La animación empieza justo cuando se abre la invitación
+                startTypewriter();
             }, 1000);
             music.play().catch(e => console.log("Audio diferido por políticas del navegador"));
         }
