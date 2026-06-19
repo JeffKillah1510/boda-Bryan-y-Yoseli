@@ -194,7 +194,7 @@
 
         /* PASE DE ACCESO */
         .pase-negro-container {
-            background: linear-gradient(135deg, #111111 0%, #1c1c1c 100%);
+            background: linear-gradient(135deg, #111111 0%, #1c1c1c(100%));
             border: 2px solid #b3966a;
             border-radius: 12px;
             padding: 55px 24px 45px 24px;
@@ -470,10 +470,10 @@
         <section class="gallery-section">
             <div class="gallery-grid">
                 <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <img src="foto1.jpg.jpeg" onerror="this.onerror=function(){this.src='foto1.jpg';};" class="gallery-item gallery-wide" alt="Mesa Principal">
-                    <img src="foto2.jpg.jpeg" class="gallery-item" style="height: 130px;" alt="Detalles">
+                    <img src="foto1.jpg" class="gallery-item gallery-wide" alt="Mesa Principal">
+                    <img src="foto2.jpg" class="gallery-item" style="height: 130px;" alt="Detalles">
                 </div>
-                <img src="foto3.jpg.jpeg" class="gallery-item gallery-right" alt="Yoseli y Bryan">
+                <img src="foto3.jpg" class="gallery-item gallery-right" alt="Yoseli y Bryan">
             </div>
         </section>
 
@@ -610,12 +610,12 @@
             <p style="color: #b3966a; font-weight: 600; letter-spacing: 2px;">28 DE AGOSTO DE 2026 | 7:00 PM</p>
             <p style="margin-top: 15px;"><strong>LUGAR DEL EVENTO:</strong><br>JARDÍN Y TERRAZA PUERTA AL PARAÍSO</p>
             <p><strong>DIRECCIÓN:</strong><br>C. ESPAÑA 8451, JUÁREZ, 22040 TIJUANA, B.C.</p>
-            <a href="http://maps.google.com/?q=C.+Esp%C3%B1a+8451,+Ju%C3%A1rez,+22040+Tijuana,+B.C." target="_blank" class="btn-action">Ver ubicación en mapa</a>
+            <a href="https://maps.google.com" target="_blank" class="btn-action">Ver ubicación en mapa</a>
         </section>
 
         <section style="background-color: #f5f2eb; padding-bottom: 50px;">
             <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 400; color: #1a1a1a; margin-top: 30px;">Esperamos contar con tu presencia</h3>
-            <img src="foto_final.jpg.jpeg" class="foto-final-img" alt="Yoseli & Bryan">
+            <img src="foto_final.jpg" class="foto-final-img" alt="Yoseli & Bryan">
         </section>
 
     </div>
@@ -668,6 +668,8 @@
                 verificarAsistenciaPrevia();
             }, 1000);
             music.play().catch(e => console.log("Audio diferido"));
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         }
 
         function toggleMusic() {
@@ -682,77 +684,44 @@
             if(localStorage.getItem(storageKey)) return;
             document.getElementById('rsvp-modal-title').textContent = "¿Estás seguro en asistir a la boda?";
             document.getElementById('rsvp-status-text').textContent = "Nos haría muy felices contar con tu presencia en este día tan especial.";
-            document.getElementById('rsvp-actions').style.display = "flex";
             document.getElementById('rsvpModalOverlay').classList.add('show');
         }
         function closeRsvpModal() { document.getElementById('rsvpModalOverlay').classList.remove('show'); }
 
-        function submitRSVP(opcion) {
-            opcionSeleccionada = opcion;
-            const statusText = document.getElementById('rsvp-status-text');
-            const actionsDiv = document.getElementById('rsvp-actions');
-            
-            statusText.textContent = "Procesando tu respuesta... Por favor, espera.";
-            actionsDiv.style.display = "none";
-            enviandoFormulario = true;
-
-            const FORM_ID = "1FAIpQLSd3jgumlMK6OYpimRXbPRoMEQvgaEHPtZ4ecyzPqXI-8v0nfQ"; 
-            const ENTRY_INVITADO = "entry.1725285104";       
-            const ENTRY_ASISTENCIA = "entry.263288389";     
-            
-            const formVirtual = document.createElement('form');
-            formVirtual.action = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
-            formVirtual.method = 'POST';
-            formVirtual.target = 'hidden_iframe';
-
-            const inputInvitado = document.createElement('input');
-            inputInvitado.type = 'hidden';
-            inputInvitado.name = ENTRY_INVITADO;
-            inputInvitado.value = nombresInvitados;
-            formVirtual.appendChild(inputInvitado);
-
-            const inputAsistencia = document.createElement('input');
-            inputAsistencia.type = 'hidden';
-            inputAsistencia.name = ENTRY_ASISTENCIA;
-            inputAsistencia.value = opcionSeleccionada;
-            formVirtual.appendChild(inputAsistencia);
-
-            document.body.appendChild(formVirtual);
-            formVirtual.submit();
-            document.body.removeChild(formVirtual);
+        function submitRSVP(option) {
+            localStorage.setItem(storageKey, option);
+            closeRsvpModal();
+            verificarAsistenciaPrevia();
         }
 
-        function iframeCargado() {
-            if (enviandoFormulario) {
-                const btnPrincipal = document.getElementById('btn-principal-rsvp');
-                localStorage.setItem(storageKey, opcionSeleccionada);
-                btnPrincipal.style.display = 'none';
-                
-                if (opcionSeleccionada === 'Sí') {
-                    document.getElementById('msg-pase-exito').style.display = 'block';
-                } else {
-                    document.getElementById('msg-pase-decline').style.display = 'block';
-                }
-                
-                setTimeout(() => {
-                    closeRsvpModal();
-                    enviandoFormulario = false;
-                }, 1500);
+        function updateCountdown() {
+            const weddingDate = new Date('August 28, 2026 19:00:00').getTime();
+            const now = new Date().getTime();
+            const gap = weddingDate - now;
+
+            if (gap <= 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
             }
-        }
 
-        const eventDate = new Date(2026, 7, 28, 19, 0, 0).getTime();
-        setInterval(function() {
-            const now = new Date().getTime(); const distance = eventDate - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById("days").textContent = days < 10 ? "0" + days : days;
-            document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
-        }, 1000);
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const textDay = Math.floor(gap / day);
+            const textHour = Math.floor((gap % day) / hour);
+            const textMinute = Math.floor((gap % hour) / minute);
+            const textSecond = Math.floor((gap % minute) / second);
+
+            document.getElementById('days').innerText = textDay < 10 ? "0" + textDay : textDay;
+            document.getElementById('hours').innerText = textHour < 10 ? "0" + textHour : textHour;
+            document.getElementById('minutes').innerText = textMinute < 10 ? "0" + textMinute : textMinute;
+            document.getElementById('seconds').innerText = textSecond < 10 ? "0" + textSecond : textSecond;
+        }
     </script>
 </body>
 </html>
