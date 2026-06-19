@@ -49,12 +49,13 @@
         .container { max-width: 450px; margin: 0 auto; background-color: #ffffff; min-height: 100vh; padding-bottom: 80px; position: relative; }
         section { padding: 45px 25px; position: relative; }
         
-        /* Portada */
+        /* Portada con respaldo en CSS si falla la imagen */
         .hero {
             position: relative; height: 480px; display: flex; flex-direction: column;
             justify-content: flex-end; padding-bottom: 50px;
             background-image: url('foto_portada.jpg'); 
             background-size: cover; background-position: center;
+            background-color: #3a3a3a;
         }
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -194,7 +195,7 @@
 
         /* PASE DE ACCESO */
         .pase-negro-container {
-            background: linear-gradient(135deg, #111111 0%, #1c1c1c(100%));
+            background: linear-gradient(135deg, #111111 0%, #1c1c1c 100%);
             border: 2px solid #b3966a;
             border-radius: 12px;
             padding: 55px 24px 45px 24px;
@@ -417,7 +418,7 @@
 
     <div class="container">
         
-        <section class="hero">
+        <section class="hero" id="hero-bg">
             <div class="hero-content">
                 <div class="names-cursive">Yoseli<span class="ampersand">&</span>Bryan</div>
             </div>
@@ -470,10 +471,16 @@
         <section class="gallery-section">
             <div class="gallery-grid">
                 <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <img src="foto1.jpg" class="gallery-item gallery-wide" alt="Mesa Principal">
-                    <img src="foto2.jpg" class="gallery-item" style="height: 130px;" alt="Detalles">
+                    <img src="foto1.jpg" 
+                         onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto1.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto1.png';" 
+                         class="gallery-item gallery-wide" alt="Mesa Principal">
+                    <img src="foto2.jpg" 
+                         onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto2.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto2.png';" 
+                         class="gallery-item" style="height: 130px;" alt="Detalles">
                 </div>
-                <img src="foto3.jpg" class="gallery-item gallery-right" alt="Yoseli y Bryan">
+                <img src="foto3.jpg" 
+                     onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto3.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto3.png';" 
+                     class="gallery-item gallery-right" alt="Yoseli y Bryan">
             </div>
         </section>
 
@@ -615,7 +622,9 @@
 
         <section style="background-color: #f5f2eb; padding-bottom: 50px;">
             <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 400; color: #1a1a1a; margin-top: 30px;">Esperamos contar con tu presencia</h3>
-            <img src="foto_final.jpg" class="foto-final-img" alt="Yoseli & Bryan">
+            <img src="foto_final.jpg" 
+                 onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto_final.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto_final.png';" 
+                 class="foto-final-img" alt="Yoseli & Bryan">
         </section>
 
     </div>
@@ -632,6 +641,20 @@
         const playPauseBtn = document.getElementById('play-pause-btn');
         let enviandoFormulario = false;
         let opcionSeleccionada = "";
+
+        // Respaldo dinámico para la imagen de fondo de la portada (.hero)
+        const heroBg = document.getElementById('hero-bg');
+        const imgPortada = new Image();
+        imgPortada.src = 'foto_portada.jpg';
+        imgPortada.onerror = function() {
+            imgPortada.src = 'foto_portada.jpeg';
+            imgPortada.onerror = function() {
+                imgPortada.src = 'foto_portada.png';
+                imgPortada.onerror = function() { console.log("No se encontró la imagen de portada"); };
+                heroBg.style.backgroundImage = "url('foto_portada.png')";
+            };
+            heroBg.style.backgroundImage = "url('foto_portada.jpeg')";
+        };
 
         const urlParams = new URLSearchParams(window.location.search);
         const nombresInvitados = urlParams.get('invitados') || 'Invitado Especial';
