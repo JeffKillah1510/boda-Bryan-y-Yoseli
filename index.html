@@ -186,12 +186,10 @@
         .btn-modal-yes { background-color: #b3966a; color: #ffffff; border: 1px solid #b3966a; }
         .btn-modal-no { background-color: #f0f0f0; color: #555555; border: 1px solid #e2e2e2; }
 
-        /* Sección de Fotos */
-        .gallery-section { background-color: #f5f2eb; padding-top: 40px; padding-bottom: 40px; }
+        /* Sección de Fotos (Ajustada para 2 imágenes alineadas simétricamente) */
+        .gallery-section { background-color: #f5f2eb; padding: 40px 15px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .gallery-item { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; }
-        .gallery-wide { grid-column: span 1; height: 180px; }
-        .gallery-right { grid-column: span 1; height: 260px; margin-top: 40px; }
+        .gallery-item { width: 100%; height: 220px; object-fit: cover; border-radius: 4px; }
 
         /* PASE DE ACCESO */
         .pase-negro-container {
@@ -384,6 +382,7 @@
         .r-title-cursive { font-family: 'Alex Brush', cursive; font-size: 3.5rem; color: #1a1a1a; font-weight: 400; line-height: 1; }
         .r-title-sub { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; letter-spacing: 5px; text-transform: uppercase; color: #2c2c2c; margin-top: 5px; margin-bottom: 30px; font-weight: 400; }
         .r-icon-container { display: flex; justify-content: center; margin-bottom: 25px; }
+        .r-icon-container img { width: 65px; height: auto; display: inline-block; mix-blend-mode: multiply; }
         .r-text { font-size: 0.85rem; color: #444444; line-height: 1.8; max-width: 340px; margin: 0 auto; letter-spacing: 0.5px; }
 
         /* Secciones Oscuras */
@@ -468,19 +467,16 @@
             </div>
         </div>
 
+        <!-- Sección de Fotos Modificada (2 fotos bien alineadas) -->
         <section class="gallery-section">
             <div class="gallery-grid">
-                <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <img src="foto1.jpg" 
-                         onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto1.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto1.png';" 
-                         class="gallery-item gallery-wide" alt="Mesa Principal">
-                    <img src="foto2.jpg" 
-                         onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto2.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto2.png';" 
-                         class="gallery-item" style="height: 130px;" alt="Detalles">
-                </div>
-                <img src="foto3.jpg" 
-                     onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto3.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto3.png';" 
-                     class="gallery-item gallery-right" alt="Yoseli y Bryan">
+                <img src="foto1.jpg" 
+                     onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto1.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto1.png';" 
+                     class="gallery-item" alt="Abrazados de espaldas">
+                     
+                <img src="foto2.jpg" 
+                     onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto2.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto2.png';" 
+                     class="gallery-item" alt="Mirándose fijamente en el arco de piedra">
             </div>
         </section>
 
@@ -604,7 +600,7 @@
             <div class="r-title-sub">REGALOS</div>
             
             <div class="r-icon-container">
-                <img src="decor_sobre.png" alt="Lluvia de Sobres" style="width: 65px; height: auto; display: inline-block; mix-blend-mode: multiply;">
+                <img src="decor_sobre.png" alt="Lluvia de Sobres">
             </div>
             
             <div class="r-text">
@@ -621,7 +617,7 @@
         </section>
 
         <section style="background-color: #f5f2eb; padding-bottom: 50px;">
-            <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 400; color: #1a1a1a; margin-top: 30px;">Esperamos contar con tu presencia</h3>
+            <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 400; color: #1a1a1a; margin-top: 30px;">Esperamos contar con tu presence</h3>
             <img src="foto_final.jpg" 
                  onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto_final.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto_final.png';" 
                  class="foto-final-img" alt="Yoseli & Bryan">
@@ -680,70 +676,6 @@
                     document.getElementById('msg-pase-decline').style.display = 'block';
                 }
             }
-        }
-
-        function startInvitation() {
-            document.getElementById('welcome-screen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('welcome-screen').style.display = 'none';
-                document.getElementById('music-player').style.display = 'flex';
-                document.getElementById('animated-date').classList.add('start-typing');
-                verificarAsistenciaPrevia();
-            }, 1000);
-            music.play().catch(e => console.log("Audio diferido"));
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
-        }
-
-        function toggleMusic() {
-            if (music.paused) { music.play(); playPauseBtn.textContent = '❚❚'; }
-            else { music.pause(); playPauseBtn.textContent = '▶'; }
-        }
-
-        function openCalendarModal() { document.getElementById('calendarModalOverlay').classList.add('show'); }
-        function closeCalendarModal() { document.getElementById('calendarModalOverlay').classList.remove('show'); }
-
-        function openRsvpModal() {
-            if(localStorage.getItem(storageKey)) return;
-            document.getElementById('rsvp-modal-title').textContent = "¿Estás seguro en asistir a la boda?";
-            document.getElementById('rsvp-status-text').textContent = "Nos haría muy felices contar con tu presencia en este día tan especial.";
-            document.getElementById('rsvpModalOverlay').classList.add('show');
-        }
-        function closeRsvpModal() { document.getElementById('rsvpModalOverlay').classList.remove('show'); }
-
-        function submitRSVP(option) {
-            localStorage.setItem(storageKey, option);
-            closeRsvpModal();
-            verificarAsistenciaPrevia();
-        }
-
-        function updateCountdown() {
-            const weddingDate = new Date('August 28, 2026 19:00:00').getTime();
-            const now = new Date().getTime();
-            const gap = weddingDate - now;
-
-            if (gap <= 0) {
-                document.getElementById('days').innerText = "00";
-                document.getElementById('hours').innerText = "00";
-                document.getElementById('minutes').innerText = "00";
-                document.getElementById('seconds').innerText = "00";
-                return;
-            }
-
-            const second = 1000;
-            const minute = second * 60;
-            const hour = minute * 60;
-            const day = hour * 24;
-
-            const textDay = Math.floor(gap / day);
-            const textHour = Math.floor((gap % day) / hour);
-            const textMinute = Math.floor((gap % hour) / minute);
-            const textSecond = Math.floor((gap % minute) / second);
-
-            document.getElementById('days').innerText = textDay < 10 ? "0" + textDay : textDay;
-            document.getElementById('hours').innerText = textHour < 10 ? "0" + textHour : textHour;
-            document.getElementById('minutes').innerText = textMinute < 10 ? "0" + textMinute : textMinute;
-            document.getElementById('seconds').innerText = textSecond < 10 ? "0" + textSecond : textSecond;
         }
     </script>
 </body>
