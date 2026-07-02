@@ -49,7 +49,7 @@
         .container { max-width: 450px; margin: 0 auto; background-color: #ffffff; min-height: 100vh; padding-bottom: 80px; position: relative; }
         section { padding: 45px 25px; position: relative; }
         
-        /* Portada con respaldo en CSS si falla la imagen */
+        /* Portada */
         .hero {
             position: relative; height: 480px; display: flex; flex-direction: column;
             justify-content: flex-end; padding-bottom: 50px;
@@ -186,7 +186,7 @@
         .btn-modal-yes { background-color: #b3966a; color: #ffffff; border: 1px solid #b3966a; }
         .btn-modal-no { background-color: #f0f0f0; color: #555555; border: 1px solid #e2e2e2; }
 
-        /* Sección de Fotos (Ajustada para 2 imágenes alineadas simétricamente) */
+        /* Sección de Fotos (Alineación simétrica para exactamente 2 imágenes) */
         .gallery-section { background-color: #f5f2eb; padding: 40px 15px; }
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
         .gallery-item { width: 100%; height: 220px; object-fit: cover; border-radius: 4px; }
@@ -225,160 +225,58 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.25); transition: all 0.3s ease; margin-top: 10px;
         }
         
-        /* ESTADOS REMANENTES */
         .msg-asistencia-confirmada {
-            color: #22c55e; 
-            font-weight: 600; 
-            font-size: 1rem; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            margin-top: 20px; 
-            display: none;
+            color: #22c55e; font-weight: 600; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 20px; display: none;
         }
         
         .btn-no-asistire-bloqueado {
-            display: none;
-            width: 100%;
-            max-width: 290px;
-            padding: 15px 20px;
-            background-color: #4a4a4a; 
-            color: #b3b3b3; 
-            border: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 10px auto 0 auto;
-            cursor: not-allowed;
+            display: none; width: 100%; max-width: 290px; padding: 15px 20px; background-color: #4a4a4a; color: #b3b3b3; border: none;
+            font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 10px auto 0 auto; cursor: not-allowed;
         }
 
-        /* CONTENEDOR RSVP INFERIOR */
         .pase-rsvp-footer-text {
             background: linear-gradient(135deg, #111111 0%, #1c1c1c 100%);
-            border: 2px solid #b3966a;
-            border-radius: 12px;
-            padding: 35px 24px;
-            margin: 15px 15px 40px 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            color: #ffffff;
-            position: relative;
+            border: 2px solid #b3966a; border-radius: 12px; padding: 35px 24px; margin: 15px 15px 40px 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); color: #ffffff; position: relative;
         }
         .pase-rsvp-footer-text::before {
             content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
             border: 1px solid rgba(179, 150, 106, 0.12); border-radius: 8px; pointer-events: none;
         }
-        .pase-rsvp-footer-text h4 {
-            font-size: 1.3rem;
-            letter-spacing: 5px;
-            color: #b3966a;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-        .pase-rsvp-footer-text .sub {
-            font-size: 0.7rem;
-            color: #ffffff;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 500;
-            margin-bottom: 20px;
-            display: block;
-            opacity: 0.85;
-        }
-        .pase-rsvp-footer-text p {
-            font-size: 0.8rem;
-            color: #e0e0e0;
-            line-height: 1.7;
-            letter-spacing: 0.5px;
-            padding: 0 5px;
-        }
+        .pase-rsvp-footer-text h4 { font-size: 1.3rem; letter-spacing: 5px; color: #b3966a; margin-bottom: 4px; text-transform: uppercase; font-weight: 500; }
+        .pase-rsvp-footer-text .sub { font-size: 0.7rem; color: #ffffff; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; margin-bottom: 20px; display: block; opacity: 0.85; }
+        .pase-rsvp-footer-text p { font-size: 0.8rem; color: #e0e0e0; line-height: 1.7; letter-spacing: 0.5px; padding: 0 5px; }
 
         .section-title { font-size: 1.2rem; letter-spacing: 4px; color: #1a1a1a; margin-bottom: 35px; text-transform: uppercase; font-weight: 400; }
 
         /* Cronograma */
         .cronograma-section { background-color: #ffffff; padding: 50px 20px; }
-        
-        .new-timeline {
-            max-width: 400px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-        }
+        .new-timeline { max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; }
+        .new-timeline-item { display: flex; align-items: center; justify-content: space-between; padding: 20px 5px; border-bottom: 1.5px solid #3b3b5c; text-align: left; }
+        .new-timeline-item:first-child { border-top: 1.5px solid #3b3b5c; }
+        .new-time { font-size: 0.95rem; font-weight: 400; color: #1a1a1a; width: 90px; flex-shrink: 0; letter-spacing: 0.5px; }
+        .new-desc { font-size: 0.85rem; font-weight: 400; color: #1a1a1a; text-transform: uppercase; letter-spacing: 1.5px; flex-grow: 1; padding-left: 10px; }
+        .new-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .new-icon img { width: 100%; height: 100%; object-fit: contain; }
 
-        .new-timeline-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 5px;
-            border-bottom: 1.5px solid #3b3b5c; 
-            text-align: left;
-        }
-
-        .new-timeline-item:first-child {
-            border-top: 1.5px solid #3b3b5c; 
-        }
-
-        .new-time {
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: #1a1a1a;
-            width: 90px;
-            flex-shrink: 0;
-            letter-spacing: 0.5px;
-        }
-
-        .new-desc {
-            font-size: 0.85rem;
-            font-weight: 400;
-            color: #1a1a1a;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            flex-grow: 1;
-            padding-left: 10px;
-        }
-
-        .new-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-        
-        .new-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        /* SECCIÓN CÓDIGO DE VESTIMENTA */
+        /* Código de Vestimenta */
         .vestimenta-section {
             background-color: #fcfbfa;
             background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 0), radial-gradient(rgba(0,0,0,0.02) 1px, transparent 0);
-            background-size: 4px 4px;
-            background-position: 0 0, 2px 2px;
-            padding: 65px 20px;
-            border-top: 1px solid #e0dbd1;
-            border-bottom: 1px solid #e0dbd1;
+            background-size: 4px 4px; background-position: 0 0, 2px 2px; padding: 65px 20px;
+            border-top: 1px solid #e0dbd1; border-bottom: 1px solid #e0dbd1;
         }
-        
         .v-title-cursive { font-family: 'Alex Brush', cursive; font-size: 3.5rem; color: #1a1a1a; font-weight: 400; line-height: 1; }
         .v-title-sub { font-family: 'Montserrat', sans-serif; font-size: 1rem; letter-spacing: 5px; text-transform: uppercase; color: #2c2c2c; margin-top: 5px; margin-bottom: 25px; font-weight: 400; }
         .v-main-tag { font-family: 'Alex Brush', cursive; font-size: 4.2rem; color: #1a1a1a; font-weight: 400; line-height: 1; margin-bottom: 35px; }
-        
         .v-details-box { max-width: 360px; margin: 0 auto; text-align: center; font-family: 'Montserrat', sans-serif; }
         .v-row { font-size: 0.95rem; color: #1a1a1a; margin-bottom: 14px; line-height: 1.6; }
         .v-row strong { font-weight: 500; }
         .v-restriction { font-size: 0.8rem; color: #666666; display: block; margin-top: 3px; padding: 0 15px; }
         .v-harmony-msg { font-size: 0.8rem; font-style: italic; color: #888888; margin-top: 40px; max-width: 320px; margin-left: auto; margin-right: auto; line-height: 1.5; letter-spacing: 0.5px; }
 
-        /* SECCIÓN DE REGALOS (LLUVIA DE SOBRES) */
-        .regalos-section {
-            background-color: #fbf9f5;
-            padding: 60px 25px;
-            border-bottom: 1px solid #e0dbd1;
-        }
+        /* Mesa de Regalos */
+        .regalos-section { background-color: #fbf9f5; padding: 60px 25px; border-bottom: 1px solid #e0dbd1; }
         .r-title-cursive { font-family: 'Alex Brush', cursive; font-size: 3.5rem; color: #1a1a1a; font-weight: 400; line-height: 1; }
         .r-title-sub { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; letter-spacing: 5px; text-transform: uppercase; color: #2c2c2c; margin-top: 5px; margin-bottom: 30px; font-weight: 400; }
         .r-icon-container { display: flex; justify-content: center; margin-bottom: 25px; }
@@ -467,15 +365,17 @@
             </div>
         </div>
 
-        <!-- Sección de Fotos Modificada (2 fotos bien alineadas) -->
+        <!-- SECCIÓN DE FOTOS CORREGIDA: Únicamente 2 imágenes -->
         <section class="gallery-section">
             <div class="gallery-grid">
-                <img src="foto1.jpg" 
-                     onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto1.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto1.png';" 
+                <!-- Foto 1: Abrazados de espaldas -->
+                <img src="foto1.jpg?v=4" 
+                     onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto1.jpeg?v=4'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto1.png?v=4';" 
                      class="gallery-item" alt="Abrazados de espaldas">
                      
-                <img src="foto2.jpg" 
-                     onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto2.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto2.png';" 
+                <!-- Foto 2: Arco de piedra fijo (Apuntando a foto2.jpg e ignorando caché vieja) -->
+                <img src="foto2.jpg?v=4" 
+                     onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto2.jpeg?v=4'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto2.png?v=4';" 
                      class="gallery-item" alt="Mirándose fijamente en el arco de piedra">
             </div>
         </section>
@@ -613,11 +513,11 @@
             <p style="color: #b3966a; font-weight: 600; letter-spacing: 2px;">28 DE AGOSTO DE 2026 | 7:00 PM</p>
             <p style="margin-top: 15px;"><strong>LUGAR DEL EVENTO:</strong><br>JARDÍN Y TERRAZA PUERTA AL PARAÍSO</p>
             <p><strong>DIRECCIÓN:</strong><br>C. ESPAÑA 8451, JUÁREZ, 22040 TIJUANA, B.C.</p>
-            <a href="https://maps.google.com" target="_blank" class="btn-action">Ver ubicación en mapa</a>
+            <a href="http://maps.google.com/?q=Jardin+y+Terraza+Puerta+al+Paraiso+Tijuana" target="_blank" class="btn-action">Ver ubicación en mapa</a>
         </section>
 
         <section style="background-color: #f5f2eb; padding-bottom: 50px;">
-            <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 400; color: #1a1a1a; margin-top: 30px;">Esperamos contar con tu presence</h3>
+            <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 400; color: #1a1a1a; margin-top: 30px;">Esperamos contar con tu presencia</h3>
             <img src="foto_final.jpg" 
                  onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto_final.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto_final.png';" 
                  class="foto-final-img" alt="Yoseli & Bryan">
@@ -638,7 +538,6 @@
         let enviandoFormulario = false;
         let opcionSeleccionada = "";
 
-        // Respaldo dinámico para la imagen de fondo de la portada (.hero)
         const heroBg = document.getElementById('hero-bg');
         const imgPortada = new Image();
         imgPortada.src = 'foto_portada.jpg';
@@ -646,7 +545,6 @@
             imgPortada.src = 'foto_portada.jpeg';
             imgPortada.onerror = function() {
                 imgPortada.src = 'foto_portada.png';
-                imgPortada.onerror = function() { console.log("No se encontró la imagen de portada"); };
                 heroBg.style.backgroundImage = "url('foto_portada.png')";
             };
             heroBg.style.backgroundImage = "url('foto_portada.jpeg')";
@@ -669,13 +567,92 @@
             
             if (respuestaGuardada) {
                 btnPrincipal.style.display = 'none';
-                
                 if (respuestaGuardada === 'Sí') {
                     document.getElementById('msg-pase-exito').style.display = 'block';
                 } else if (respuestaGuardada === 'No') {
                     document.getElementById('msg-pase-decline').style.display = 'block';
                 }
             }
+        }
+
+        function openCalendarModal() { document.getElementById('calendarModalOverlay').classList.add('show'); }
+        function closeCalendarModal() { document.getElementById('calendarModalOverlay').classList.remove('show'); }
+        function openRsvpModal() { document.getElementById('rsvpModalOverlay').classList.add('show'); }
+        function closeRsvpModal() { document.getElementById('rsvpModalOverlay').classList.remove('show'); }
+
+        function startInvitation() {
+            document.getElementById('welcome-screen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('welcome-screen').style.display = 'none';
+                document.getElementById('animated-date').classList.add('start-typing');
+                document.getElementById('music-player').style.display = 'flex';
+                music.play().catch(e => console.log("Auto-play bloqueado por el navegador"));
+            }, 1000);
+            verificarAsistenciaPrevia();
+            actualizarCuentaRegresiva();
+            setInterval(actualizarCuentaRegresiva, 1000);
+        }
+
+        function toggleMusic() {
+            if (music.paused) { music.play(); playPauseBtn.innerText = "❚❚"; }
+            else { music.pause(); playPauseBtn.innerText = "▶"; }
+        }
+
+        function actualizarCuentaRegresiva() {
+            const fechaBoda = new Date("August 28, 2026 19:00:00").getTime();
+            const ahora = new Date().getTime();
+            const diferencia = fechaBoda - ahora;
+
+            if (diferencia <= 0) { return; }
+
+            const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = d < 10 ? '0' + d : d;
+            document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
+            document.getElementById('minutes').innerText = m < 10 ? '0' + m : m;
+            document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
+        }
+
+        function submitRSVP(respuesta) {
+            if (enviandoFormulario) return;
+            enviandoFormulario = true;
+            opcionSeleccionada = respuesta;
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbygGclG8f_OaDscgO-0OFrM66v3qY7eE3w8jI_t7Z8/exec'; 
+            
+            const datos = new FormData();
+            datos.append('invitados', nombresInvitados);
+            datos.append('asistencia', respuesta);
+            datos.append('mesa', mesaAsignada);
+            datos.append('pases', totalPases);
+
+            document.getElementById('rsvp-modal-title').innerText = "Enviando...";
+            document.getElementById('rsvp-status-text').innerText = "Por favor, espera un momento.";
+            document.getElementById('rsvp-actions').style.display = 'none';
+
+            fetch(scriptURL, { method: 'POST', body: datos, mode: 'no-cors' })
+                .then(() => { iframeCargado(); })
+                .catch(() => { iframeCargado(); });
+        }
+
+        function iframeCargado() {
+            if (!enviandoFormulario) return;
+            
+            localStorage.setItem(storageKey, opcionSeleccionada);
+            closeRsvpModal();
+
+            const btnPrincipal = document.getElementById('btn-principal-rsvp');
+            btnPrincipal.style.display = 'none';
+
+            if (opcionSeleccionada === 'Sí') {
+                document.getElementById('msg-pase-exito').style.display = 'block';
+            } else {
+                document.getElementById('msg-pase-decline').style.display = 'block';
+            }
+            enviandoFormulario = false;
         }
     </script>
 </body>
