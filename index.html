@@ -35,7 +35,7 @@
         .ampersand {
             font-family: 'Parisienne', cursive;
             font-size: 3.8rem;
-            color: #C5A059; /* Dorado Champaña Premium */
+            color: #D4AF37; 
             display: inline-block;
             margin: 0 4px;
             vertical-align: middle;
@@ -82,7 +82,7 @@
         .typing-container {
             font-size: 1.05rem;
             font-weight: 500;
-            color: #C5A059; /* Dorado Champaña Premium */
+            color: #D4AF37; 
             letter-spacing: 2px;
             text-transform: uppercase;
             white-space: nowrap;
@@ -114,9 +114,9 @@
             justify-content: center;
             gap: 8px;
             padding: 12px 20px;
-            border: 1px solid #C5A059; /* Dorado Champaña Premium */
+            border: 1px solid #D4AF37;
             background-color: transparent;
-            color: #C5A059; /* Dorado Champaña Premium */
+            color: #D4AF37;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -130,7 +130,7 @@
         }
         
         .btn-calendar:hover {
-            background-color: #C5A059;
+            background-color: #D4AF37;
             color: #ffffff;
         }
 
@@ -183,10 +183,10 @@
         .rsvp-buttons-container { display: flex; gap: 12px; justify-content: center; }
 
         .btn-modal-rsvp { padding: 12px 25px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; border-radius: 4px; cursor: pointer; flex: 1; }
-        .btn-modal-yes { background-color: #C5A059; color: #ffffff; border: 1px solid #C5A059; }
+        .btn-modal-yes { background-color: #D4AF37; color: #ffffff; border: 1px solid #D4AF37; }
         .btn-modal-no { background-color: #f0f0f0; color: #555555; border: 1px solid #e2e2e2; }
 
-        /* CONTENEDOR DE FOTOS ADAPTADAS */
+        /* Contenedor de fotos adaptadas */
         .single-photo-section { background-color: #f5f2eb; padding: 35px 15px; text-align: center; }
         .single-photo-item { 
             width: 100%; 
@@ -200,38 +200,79 @@
             margin: 0 auto;
         }
 
-        /* PASE DE ACCESO */
+        /* PASE DE ACCESO - REDISEÑO OSCURO PREMIUM CORRECTO */
         .pase-negro-container {
-            background: linear-gradient(135deg, #111111 0%, #1c1c1c(100%) 100%);
-            border: 2px solid #C5A059; /* Dorado Champaña Premium */
-            border-radius: 12px;
-            padding: 55px 24px 45px 24px;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+            border: 2px solid #D4AF37;
+            border-radius: 16px;
+            padding: 45px 24px 40px 24px;
             margin: 25px 15px 10px 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
             color: #ffffff;
             position: relative;
         }
         .pase-negro-container::before {
-            content: ''; position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px;
-            border: 1px solid rgba(197, 160, 89, 0.15); border-radius: 8px; pointer-events: none;
+            content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 10px; pointer-events: none;
         }
-        .pase-titulo-oro { font-size: 1.4rem; letter-spacing: 4px; color: #C5A059; text-transform: uppercase; margin-bottom: 8px; }
-        .pase-subtitulo { font-size: 0.75rem; color: #888888; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 35px; }
+        .pase-titulo-oro { 
+            font-size: 1.5rem; 
+            letter-spacing: 5px; 
+            background: linear-gradient(135deg, #fce0ad 0%, #D4AF37 50%, #b38f24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase; 
+            margin-bottom: 4px; 
+            font-weight: 600;
+        }
+        .pase-subtitulo { font-size: 0.75rem; color: #8c8c8c; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 32px; }
         
         .pase-nombre-cursiva {
-            font-family: 'Alex Brush', cursive; font-size: 3rem; color: #C5A059; font-weight: 400; line-height: 1.2; margin: 15px 0 25px 0;
+            font-family: 'Alex Brush', cursive; 
+            font-size: 3.2rem; 
+            background: linear-gradient(135deg, #ffeaa7 0%, #D4AF37 50%, #aa8214 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 400; 
+            line-height: 1.2; 
+            margin: 10px 0 25px 0;
         }
         .pase-info-grid {
-            display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #2c2c2c; background: rgba(0,0,0,0.2); border-radius: 6px; padding: 16px; margin-top: 30px; margin-bottom: 30px;
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            border: 1px solid rgba(212, 175, 55, 0.25); 
+            background: rgba(0, 0, 0, 0.4); 
+            border-radius: 12px; 
+            padding: 18px; 
+            margin-top: 25px; 
+            margin-bottom: 32px;
         }
-        .pase-info-block:first-child { border-right: 1px solid #2c2c2c; }
-        .pase-info-label { font-size: 0.65rem; text-transform: uppercase; color: #777; letter-spacing: 1px; }
-        .pase-info-value { font-size: 1.15rem; font-weight: 500; color: #ffffff; margin-top: 6px; }
+        .pase-info-block:first-child { border-right: 1px solid rgba(212, 175, 55, 0.15); }
+        .pase-info-label { font-size: 0.65rem; text-transform: uppercase; color: #888888; letter-spacing: 1.5px; }
+        .pase-info-value { font-size: 1.25rem; font-weight: 500; color: #ffffff; margin-top: 6px; }
 
         .btn-confirmar-oro {
-            display: inline-block; width: 100%; max-width: 290px; padding: 15px 20px; background-color: #C5A059; color: #ffffff; border: none;
-            font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.25); transition: all 0.3s ease; margin-top: 10px;
+            display: inline-block; 
+            width: 100%; 
+            max-width: 290px; 
+            padding: 16px 20px; 
+            background: linear-gradient(135deg, #fcd890 0%, #D4AF37 50%, #b38b1f 100%);
+            color: #000000; 
+            border: none;
+            font-size: 0.8rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            cursor: pointer;
+            border-radius: 25px;
+            box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35); 
+            transition: all 0.3s ease; 
+            margin-top: 5px;
+        }
+        
+        .btn-confirmar-oro:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(212, 175, 55, 0.5);
         }
         
         .msg-asistencia-confirmada {
@@ -241,18 +282,28 @@
         .btn-no-asistire-bloqueado {
             display: none; width: 100%; max-width: 290px; padding: 15px 20px; background-color: #4a4a4a; color: #b3b3b3; border: none;
             font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 10px auto 0 auto; cursor: not-allowed;
+            border-radius: 25px;
         }
 
         .pase-rsvp-footer-text {
-            background: linear-gradient(135deg, #111111 0%, #1c1c1c 100%);
-            border: 2px solid #C5A059; border-radius: 12px; padding: 35px 24px; margin: 15px 15px 40px 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3); color: #ffffff; position: relative;
+            background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+            border: 2px solid #D4AF37; border-radius: 12px; padding: 35px 24px; margin: 15px 15px 40px 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4); color: #ffffff; position: relative;
         }
         .pase-rsvp-footer-text::before {
             content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px;
-            border: 1px solid rgba(197, 160, 89, 0.12); border-radius: 8px; pointer-events: none;
+            border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 8px; pointer-events: none;
         }
-        .pase-rsvp-footer-text h4 { font-size: 1.3rem; letter-spacing: 5px; color: #C5A059; margin-bottom: 4px; text-transform: uppercase; font-weight: 500; }
+        .pase-rsvp-footer-text h4 { 
+            font-size: 1.3rem; 
+            letter-spacing: 5px; 
+            background: linear-gradient(135deg, #fce0ad 0%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+        }
         .pase-rsvp-footer-text .sub { font-size: 0.7rem; color: #ffffff; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; margin-bottom: 20px; display: block; opacity: 0.85; }
         .pase-rsvp-footer-text p { font-size: 0.8rem; color: #e0e0e0; line-height: 1.7; letter-spacing: 0.5px; padding: 0 5px; }
 
@@ -309,7 +360,7 @@
             border: 1px solid #e3ded4; padding: 8px 14px; border-radius: 30px; display: flex; align-items: center; gap: 10px; z-index: 1000;
         }
         .player-btn { background: #1a1a1a; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 0.7rem; }
-        .music-title { font-size: 0.7rem; color: #444; }
+        .music-title { font-size: 0.7 효율적인; color: #444; }
     </style>
 </head>
 <body>
@@ -318,7 +369,7 @@
 
     <div id="welcome-screen">
         <h2 style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 4px; text-transform: uppercase; color: #777; margin-bottom: 10px;">Nuestra Boda</h2>
-        <div class="names-cursive">Yoseli<span class="ampersand">&</span>Bryan</div>
+        <div class="names-cursive">Yoseli<span class="ampersand">&amp;</span>Bryan</div>
         <button class="btn-enter" onclick="startInvitation()">Abrir Invitación</button>
     </div>
 
@@ -326,7 +377,7 @@
         
         <section class="hero" id="hero-bg">
             <div class="hero-content">
-                <div class="names-cursive">Yoseli<span class="ampersand">&</span>Bryan</div>
+                <div class="names-cursive">Yoseli<span class="ampersand">&amp;</span>Bryan</div>
             </div>
         </section>
 
@@ -355,7 +406,7 @@
                     <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https%3A%2F%2Fcalendar.google.com%0ADTSTART:20260828T190000%0ADTEND:20260829T020000%0ASUMMARY:Boda%20Yoseli%20%26%20Bryan%0ADESCRIPTION:%C2%A1Acomp%C3%A1%C3%B1anos%20a%20celebrar%20nuestra%20boda%21%0ALOCATION:Jard%C3%ADn%20y%20Terraza%20Puerta%20al%20Para%C3%ADso%2C%20C.%20Espa%C3%B1a%208451%2C%20Ju%C3%A1rez%2C%2022040%20Tijuana%2C%20B.C.%0AEND:VEVENT%0AEND:VCALENDAR" download="Boda_Yoseli_y_Bryan.ics">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple logo"> Apple
                     </a>
-                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Yoseli+%26+Bryan&dates=20260828T190000/20260829T020000&details=¡Acompáñanos+a+celebrar+nuestra+boda!+Por+favor+confirma+tu+asistencia.&location=Jardín+y+Terraza+Puerta+al+Paraíso,+C.+España+8451,+Juárez,+22040+Tijuana,+B.C.&sf=true&output=xml" target="_blank">
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Boda+Yoseli+%26+Bryan&amp;dates=20260828T190000/20260829T020000&amp;details=¡Acompáñanos+a+celebrar+nuestra+boda!+Por+favor+confirma+tu+asistencia.&amp;location=Jardín+y+Terraza+Puerta+al+Paraíso,+C.+España+8451,+Juárez,+22040+Tijuana,+B.C.&amp;sf=true&amp;output=xml" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Calendar_icon_%282020%29.svg" alt="Google Calendar"> Google
                     </a>
                 </div>
@@ -374,6 +425,7 @@
             </div>
         </div>
 
+        <!-- FOTO 2 (ARCO DE PIEDRA) -->
         <section class="single-photo-section">
             <img src="foto2.jpg?v=9" 
                  onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto2.jpeg?v=9'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto2.png?v=9';" 
@@ -381,11 +433,12 @@
                  alt="Yoseli y Bryan en el arco de piedra">
         </section>
 
+        <!-- PASE DE ACCESO - NUEVO REDISEÑO PREMIUM ACTUALIZADO -->
         <div class="pase-negro-container">
             <h3 class="pase-titulo-oro">Pase de Acceso</h3>
-            <p class="pase-subtitulo">Pase personal para el evento</p>
+            <p class="pase-subtitulo">Exclusive Invitation</p>
             
-            <div style="font-size: 0.65rem; text-transform: uppercase; color: #666; letter-spacing: 1px; margin-bottom: 2px;">Invitado(s):</div>
+            <div style="font-size: 0.65rem; text-transform: uppercase; color: #888888; letter-spacing: 1.5px; margin-bottom: 2px;">Titular del pase:</div>
             <div id="pase-nombres" class="pase-nombre-cursiva">Cargando...</div>
 
             <div class="pase-info-grid">
@@ -394,13 +447,13 @@
                     <div id="pase-mesa" class="pase-info-value">--</div>
                 </div>
                 <div class="pase-info-block">
-                    <div class="pase-info-label">Pases asignados</div>
+                    <div class="pase-info-label">Cupos</div>
                     <div id="pase-boletos" class="pase-info-value">--</div>
                 </div>
             </div>
 
             <button id="btn-principal-rsvp" onclick="openRsvpModal()" class="btn-confirmar-oro">
-                Por favor de confirmar aquí
+                Confirmar Asistencia
             </button>
 
             <div id="msg-pase-exito" class="msg-asistencia-confirmada">
@@ -417,6 +470,7 @@
             <p>PARA NOSOTROS ES MUY IMPORTANTE COMPARTIR ESTE DÍA CONTIGO. POR FAVOR AYÚDANOS A CONFIRMAR TU ASISTENCIA ANTES DEL DÍA 10 DE AGOSTO DE 2026.</p>
         </div>
 
+        <!-- FOTO 3 (BAJO EL ÁRBOL) -->
         <section class="single-photo-section" style="padding-bottom: 10px;">
             <img src="foto3.jpg?v=9" 
                  onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto3.jpeg?v=9'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto3.png?v=9';" 
@@ -518,7 +572,7 @@
 
         <section class="dark-section">
             <h3 class="section-title">DÍA DEL EVENTO</h3>
-            <p style="color: #C5A059; font-weight: 600; letter-spacing: 2px;">28 DE AGOSTO DE 2026 | 7:00 PM</p>
+            <p style="color: #D4AF37; font-weight: 600; letter-spacing: 2px;">28 DE AGOSTO DE 2026 | 7:00 PM</p>
             <p style="margin-top: 15px;"><strong>LUGAR DEL EVENTO:</strong><br>JARDÍN Y TERRAZA PUERTA AL PARAÍSO</p>
             <p><strong>DIRECCIÓN:</strong><br>C. ESPAÑA 8451, JUÁREZ, 22040 TIJUANA, B.C.</p>
             <a href="http://maps.google.com/?q=Jardin+y+Terraza+Puerta+al+Paraiso+Tijuana" target="_blank" class="btn-action">Ver ubicación en mapa</a>
@@ -528,7 +582,7 @@
             <h3 style="font-family: 'Alex Brush', cursive; font-size: 2.5rem; font-weight: 400; color: #1a1a1a; margin-top: 30px;">Esperamos contar con tu presencia</h3>
             <img src="foto_final.jpg" 
                  onerror="if (this.src.indexOf('.jpg') !== -1) this.src = 'foto_final.jpeg'; else if (this.src.indexOf('.jpeg') !== -1) this.src = 'foto_final.png';" 
-                 class="foto-final-img" alt="Yoseli & Bryan">
+                 class="foto-final-img" alt="Yoseli &amp; Bryan">
         </section>
 
     </div>
