@@ -175,7 +175,6 @@
             width: 100%; background-color: #e9e9e9; border: none; padding: 16px; color: #555555;
             font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
         }
-        .modal-close-btn svg { width: 16px; height: 16px; fill: #555555; }
 
         .rsvp-modal { background-color: #ffffff; text-align: center; padding: 30px 20px; }
         .rsvp-modal h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
@@ -319,6 +318,9 @@
         .new-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .new-icon img { width: 100%; height: 100%; object-fit: contain; }
 
+        /* Clase CSS para invertir imágenes con fondo negro y trazos blancos */
+        .invert-icon { filter: invert(1); }
+
         /* Código de Vestimenta */
         .vestimenta-section {
             background-color: #fcfbfa;
@@ -433,7 +435,7 @@
                  alt="Yoseli y Bryan en el arco de piedra">
         </section>
 
-        <!-- PASE DE ACCESO - REDISEÑO OSCURO PREMIUM -->
+        <!-- PASE DE ACCESO - REDISEÑO OSCURO PREMIUM SIN VIP -->
         <div class="pase-negro-container">
             <h3 class="pase-titulo-oro">Pase de Acceso</h3>
             <p class="pase-subtitulo">Exclusive Invitation</p>
@@ -478,6 +480,7 @@
                  alt="Yoseli y Bryan bajo el árbol">
         </section>
 
+        <!-- CRONOGRAMA CON INVERSIÓN CSS APLICADA SÓLO A IMÁGENES OSCURAS -->
         <section class="cronograma-section">
             <h3 class="section-title">CRONOGRAMA DEL EVENTO</h3>
             
@@ -486,7 +489,7 @@
                     <div class="new-time">7:00 PM</div>
                     <div class="new-desc">Recepcion y Bienvenida</div>
                     <div class="new-icon">
-                        <img src="decor_cortina.png" alt="Arco" style="filter: invert(1);">
+                        <img src="decor_cortina.png" alt="Arco" class="invert-icon">
                     </div>
                 </div>
 
@@ -494,7 +497,7 @@
                     <div class="new-time">8:00 PM</div>
                     <div class="new-desc">Cena Formal</div>
                     <div class="new-icon">
-                        <img src="decor_platos.png" alt="Cena" style="filter: invert(1);">
+                        <img src="decor_platos.png" alt="Cena" class="invert-icon">
                     </div>
                 </div>
 
@@ -502,7 +505,7 @@
                     <div class="new-time">9:00 PM</div>
                     <div class="new-desc">Brindis y Primer Baile</div>
                     <div class="new-icon">
-                        <img src="decor_champagne.png" alt="Brindis" style="filter: invert(1);">
+                        <img src="decor_champagne.png" alt="Brindis" class="invert-icon">
                     </div>
                 </div>
 
@@ -510,7 +513,7 @@
                     <div class="new-time">9:30 PM</div>
                     <div class="new-desc">Apertura del Baile</div>
                     <div class="new-icon">
-                        <img src="decor_baile.png" alt="Baile" style="filter: invert(1);">
+                        <img src="decor_baile.png" alt="Baile" class="invert-icon">
                     </div>
                 </div>
 
@@ -518,6 +521,7 @@
                     <div class="new-time">10:00 PM</div>
                     <div class="new-desc">Banda</div>
                     <div class="new-icon">
+                        <!-- SIN invert-icon por ser un PNG ya con fondo transparente/trazo negro -->
                         <img src="decor_guitarra.png" alt="Banda">
                     </div>
                 </div>
