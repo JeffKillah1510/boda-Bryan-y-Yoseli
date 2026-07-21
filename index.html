@@ -318,8 +318,11 @@
         .new-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .new-icon img { width: 100%; height: 100%; object-fit: contain; }
 
-        /* Clase CSS para invertir imágenes con fondo negro y trazos blancos */
-        .invert-icon { filter: invert(1); }
+        /* REGLA CORREGIDA: Invierte el color Y elimina el fondo blanco */
+        .invert-icon { 
+            filter: invert(1); 
+            mix-blend-mode: multiply; 
+        }
 
         /* Código de Vestimenta */
         .vestimenta-section {
@@ -435,7 +438,7 @@
                  alt="Yoseli y Bryan en el arco de piedra">
         </section>
 
-        <!-- PASE DE ACCESO - REDISEÑO OSCURO PREMIUM SIN VIP -->
+        <!-- PASE DE ACCESO -->
         <div class="pase-negro-container">
             <h3 class="pase-titulo-oro">Pase de Acceso</h3>
             <p class="pase-subtitulo">Exclusive Invitation</p>
@@ -480,7 +483,7 @@
                  alt="Yoseli y Bryan bajo el árbol">
         </section>
 
-        <!-- CRONOGRAMA CON INVERSIÓN CSS APLICADA SÓLO A IMÁGENES OSCURAS -->
+        <!-- CRONOGRAMA CON INVERSIÓN + MULTIPLY -->
         <section class="cronograma-section">
             <h3 class="section-title">CRONOGRAMA DEL EVENTO</h3>
             
@@ -521,7 +524,6 @@
                     <div class="new-time">10:00 PM</div>
                     <div class="new-desc">Banda</div>
                     <div class="new-icon">
-                        <!-- SIN invert-icon por ser un PNG ya con fondo transparente/trazo negro -->
                         <img src="decor_guitarra.png" alt="Banda">
                     </div>
                 </div>
