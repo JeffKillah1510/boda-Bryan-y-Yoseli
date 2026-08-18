@@ -6,7 +6,7 @@
     <title>Boda Yoseli & Bryan</title>
     
     <!-- =================================================================== -->
-    <!-- CONFIGURACIÓN DE VISTA PREVIA PARA WHATSAPP Y REDES SOCIALES        -->
+    <!-- CONFIGURACIÓN DE VISTA PREVIA PARA WHATSAPP Y REDES SOCIALES       -->
     <!-- =================================================================== -->
     <meta property="og:title" content="Yoseli & Bryan - Nuestra Boda">
     <meta property="og:description" content="Nos encantaría que nos acompañes este día tan especial. Abre el enlace para ver la invitación completa por favor confirmar asistencia.">
@@ -420,47 +420,54 @@
         const mesaAsignada = urlParams.get('mesa') || 'Por asignar';
         const totalPases = urlParams.get('pases') || '1';
 
+        // Estos campos del "pase" ya no existen en esta versión del HTML.
+        // Se protegen con comprobaciones para que, si faltan, NO truene el script
+        // (antes esto detenía toda la ejecución y el contador nunca arrancaba).
+        function setTextIfExists(id, text) {
+            const el = document.getElementById(id);
+            if (el) el.innerText = text;
+        }
+        setTextIfExists('pase-nombres', nombresInvitados);
+        setTextIfExists('pase-mesa', mesaAsignada);
+        setTextIfExists('pase-boletos', totalPases === '1' ? '1 pase' : `${totalPases} pases`);
+
         const storageKey = "boda_rsvp_" + nombresInvitados.replace(/\s+/g, '_');
 
         function verificarAsistenciaPrevia() {
             const respuestaGuardada = localStorage.getItem(storageKey);
             const btnPrincipal = document.getElementById('btn-principal-rsvp');
-            
-            if (respuestaGuardada && btnPrincipal) {
+            if (!btnPrincipal) return; // esta sección no existe en esta versión del HTML
+
+            if (respuestaGuardada) {
                 btnPrincipal.style.display = 'none';
                 if (respuestaGuardada === 'Sí') {
-                    const msgExito = document.getElementById('msg-pase-exito');
-                    if (msgExito) msgExito.style.display = 'block';
+                    const exito = document.getElementById('msg-pase-exito');
+                    if (exito) exito.style.display = 'block';
                 } else if (respuestaGuardada === 'No') {
-                    const msgDecline = document.getElementById('msg-pase-decline');
-                    if (msgDecline) msgDecline.style.display = 'block';
+                    const decline = document.getElementById('msg-pase-decline');
+                    if (decline) decline.style.display = 'block';
                 }
             }
         }
 
         function openCalendarModal() { document.getElementById('calendarModalOverlay').classList.add('show'); }
         function closeCalendarModal() { document.getElementById('calendarModalOverlay').classList.remove('show'); }
-
-        function startInvitation() {
-            document.getElementById('welcome-screen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('welcome-screen').style.display = 'none';
-                document.getElementById('animated-date').classList.add('start-typing');
-                document.getElementById('music-player').style.display = 'flex';
-                music.play().catch(e => console.log("Auto-play bloqueado por el navegador"));
-            }, 1000);
-            verificarAsistenciaPrevia();
-            actualizarCuentaRegresiva();
-            setInterval(actualizarCuentaRegresiva, 1000);
+        function openRsvpModal() {
+            const modal = document.getElementById('rsvpModalOverlay');
+            if (modal) modal.classList.add('show');
+        }
+        function closeRsvpModal() {
+            const modal = document.getElementById('rsvpModalOverlay');
+            if (modal) modal.classList.remove('show');
         }
 
-        function toggleMusic() {
-            if (music.paused) { music.play(); playPauseBtn.innerText = "❚❚"; }
-            else { music.pause(); playPauseBtn.innerText = "▶"; }
-        }
+        // --- CUENTA REGRESIVA ---
+        // Fecha y hora del evento con zona horaria explícita de Baja California
+        // (UTC-7 en agosto, horario de verano) para que el conteo sea correcto
+        // sin importar en qué zona horaria esté viendo la página el invitado.
+        const fechaBoda = new Date("2026-08-28T15:00:00-07:00").getTime();
 
         function actualizarCuentaRegresiva() {
-            const fechaBoda = new Date("2026-08-28T15:00:00").getTime();
             const ahora = new Date().getTime();
             const diferencia_tiempo = fechaBoda - ahora;
 
@@ -483,20 +490,65 @@
             document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
         }
 
+        // Arranca el contador de inmediato al cargar la página,
+        // no solo hasta que se dé clic en "Abrir Invitación".
+        actualizarCuentaRegresiva();
+        setInterval(actualizarCuentaRegresiva, 1000);
+        verificarAsistenciaPrevia();
+
+        function startInvitation() {
+            document.getElementById('welcome-screen').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('welcome-screen').style.display = 'none';
+                document.getElementById('animated-date').classList.add('start-typing');
+                document.getElementById('music-player').style.display = 'flex';
+                music.play().catch(e => console.log("Auto-play bloqueado por el navegador"));
+            }, 1000);
+        }
+
+        function toggleMusic() {
+            if (music.paused) { music.play(); playPauseBtn.innerText = "❚❚"; }
+            else { music.pause(); playPauseBtn.innerText = "▶"; }
+        }
+
+        function submitRSVP(respuesta) {
+            if (enviandoFormulario) return;
+            enviandoFormulario = true;
+            opcionSeleccionada = respuesta;
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbygGclG8f_OaDscgO-0OFrM66v3qY7eE3w8jI_t7Z8/exec'; 
+            
+            const datos = new FormData();
+            datos.append('invitados', nombresInvitados);
+            datos.append('asistencia', respuesta);
+            datos.append('mesa', mesaAsignada);
+            datos.append('pases', totalPases);
+
+            setTextIfExists('rsvp-modal-title', "Enviando...");
+            setTextIfExists('rsvp-status-text', "Por favor, espera un momento.");
+            const acciones = document.getElementById('rsvp-actions');
+            if (acciones) acciones.style.display = 'none';
+
+            fetch(scriptURL, { method: 'POST', body: datos, mode: 'no-cors' })
+                .then(() => { iframeCargado(); })
+                .catch(() => { iframeCargado(); });
+        }
+
         function iframeCargado() {
             if (!enviandoFormulario) return;
             
             localStorage.setItem(storageKey, opcionSeleccionada);
+            closeRsvpModal();
 
             const btnPrincipal = document.getElementById('btn-principal-rsvp');
             if (btnPrincipal) btnPrincipal.style.display = 'none';
 
             if (opcionSeleccionada === 'Sí') {
-                const msgExito = document.getElementById('msg-pase-exito');
-                if (msgExito) msgExito.style.display = 'block';
+                const exito = document.getElementById('msg-pase-exito');
+                if (exito) exito.style.display = 'block';
             } else {
-                const msgDecline = document.getElementById('msg-pase-decline');
-                if (msgDecline) msgDecline.style.display = 'block';
+                const decline = document.getElementById('msg-pase-decline');
+                if (decline) decline.style.display = 'block';
             }
             enviandoFormulario = false;
         }
